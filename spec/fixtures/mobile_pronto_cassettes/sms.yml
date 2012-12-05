@@ -1,0 +1,136 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.mpgateway.com:80/v_2_00/smscredits/credits.aspx?CREDENCIAL=AWESOMEAPICREDENTIALS
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 Dec 2012 18:42:48 GMT
+      server:
+      - Microsoft-IIS/6.0
+      x-powered-by:
+      - ASP.NET
+      x-aspnet-version:
+      - 2.0.50727
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-length:
+      - '4'
+    body: '6.00'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.mpgateway.com:80/v_2_00/smsfollow/smsfollow.aspx?AUX_USER=aux_user&CREDENCIAL=AWESOMEAPICREDENTIALS&MESSAGE=nice%20message&MOBILE=558199999999&PRINCIPAL_USER=&SEND_PROJECT=N
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 Dec 2012 18:42:48 GMT
+      server:
+      - Microsoft-IIS/6.0
+      x-powered-by:
+      - ASP.NET
+      x-aspnet-version:
+      - 2.0.50727
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-length:
+      - '28'
+    body: 000:MPG000027109145-21611143
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.mpgateway.com:80/v_2_00/smspush/enviasms.aspx?AUX_USER=aux%20user&CREDENCIAL=AWESOMEAPICREDENTIALS&MESSAGE=message&MOBILE=558199999999&PRINCIPAL_USER=&SEND_PROJECT=N
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 Dec 2012 18:42:48 GMT
+      server:
+      - Microsoft-IIS/6.0
+      x-powered-by:
+      - ASP.NET
+      x-aspnet-version:
+      - 2.0.50727
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-length:
+      - '3'
+    body: '000'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.mpgateway.com:80/v_2_00/smsstatus/status.aspx?CREDENCIAL=AWESOMEAPICREDENTIALS&ID=000:MPG000027109145-21611143
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 Dec 2012 18:42:49 GMT
+      server:
+      - Microsoft-IIS/6.0
+      x-powered-by:
+      - ASP.NET
+      x-aspnet-version:
+      - 2.0.50727
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-length:
+      - '3'
+    body: '200'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.mpgateway.com:80/v_2_00/query01/query01.aspx?AUX_USER=aux%20user&CREDENCIAL=AWESOMEAPICREDENTIALS&END_DATE=2012-12-05&MOBILE=558199999999&PRINCIPAL_USER=&START_DATE=2012-12-05&STATUS_CODE=200
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 05 Dec 2012 18:46:23 GMT
+      server:
+      - Microsoft-IIS/6.0
+      x-powered-by:
+      - ASP.NET
+      x-aspnet-version:
+      - 2.0.50727
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-length:
+      - '3'
+    body: '200'
+    http_version: '1.1'

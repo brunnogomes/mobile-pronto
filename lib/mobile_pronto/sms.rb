@@ -15,19 +15,22 @@ module MobilePronto
     end
 
     def credits
-      response = self.class.get "/smscredits/credits.aspx?CREDENCIAL=#{self.credential}"
+      response = self.class.get "/smscredits/credits.aspx", query: {'CREDENCIAL' => self.credential}
       response.parsed_response
     end
 
     def send(mobile, aux_user, message)
-      message = CGI::escape(message)
-      response = self.class.get "/smspush/enviasms.aspx?CREDENCIAL=#{self.credential}&PRINCIPAL_USER=#{self.username}&AUX_USER=#{aux_user}&MOBILE=#{mobile}&SEND_PROJECT=N&MESSAGE=#{message}"
+      response = self.class.get "/smspush/enviasms.aspx",
+        query: {"CREDENCIAL" => self.credential, "PRINCIPAL_USER" => self.username,
+        "AUX_USER" => aux_user, "MOBILE" => mobile, "MESSAGE" => message, "SEND_PROJECT" => "N"}
+
       response.parsed_response
     end
 
     def follow(mobile, aux_user, message)
-      message = CGI::escape(message)
-      response = self.class.get "/smsfollow/smsfollow.aspx?CREDENCIAL=#{self.credential}&PRINCIPAL_USER=#{self.username}&AUX_USER=#{aux_user}&MOBILE=#{mobile}&SEND_PROJECT=N&MESSAGE=#{message}"
+      response = self.class.get "/smsfollow/smsfollow.aspx",
+        query: {"CREDENCIAL" => self.credential, "PRINCIPAL_USER" => self.username,
+          "AUX_USER" => aux_user, "MOBILE" => mobile, "SEND_PROJECT" => "N", "MESSAGE" => message}
       response.parsed_response
     end
 
@@ -37,10 +40,11 @@ module MobilePronto
     end
 
     def query01(start_date, end_date, aux_user, mobile, status_code)
-      response = self.class.get "/query01/query01.aspx?CREDENCIAL=#{self.credential}&START_DATE=#{start_date}&END_DATE=#{end_date}&AUX_USER=#{aux_user}&MOBILE=#{mobile}&STATUS_CODE=#{status_code}"
+      response = self.class.get "/query01/query01.aspx",
+        query: {"CREDENCIAL" => self.credential, "PRINCIPAL_USER" => self.username,
+        "AUX_USER" => aux_user, "MOBILE" => mobile, "STATUS_CODE" => status_code,
+        "START_DATE" => start_date, "END_DATE" => end_date}
       response.parsed_response
     end
-
   end
-
 end

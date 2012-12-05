@@ -1,3 +1,4 @@
+require 'date'
 require_relative '../../spec_helper'
 
 describe MobilePronto::SMS do
@@ -15,10 +16,10 @@ describe MobilePronto::SMS do
 
   describe "GET credits" do
  
-    let(:mp) { MobilePronto::SMS.new('YOURAPICREDENTIALHERE') }
+    let(:mp) { MobilePronto::SMS.new('AWESOMEAPICREDENTIALS', nil) }
    
     before do
-      VCR.insert_cassette 'sms', :record => :credits
+      VCR.insert_cassette 'sms', :record => :new_episodes
     end
    
     after do
@@ -30,16 +31,16 @@ describe MobilePronto::SMS do
     end
    
     it "must perform the request and get the data" do
-      mp.credits.must_equal '0.00'
+      mp.credits.must_equal '6.00'
     end
   end
 
   describe "GET send" do
  
-    let(:mp) { MobilePronto::SMS.new('YOURAPICREDENTIALHERE') }
+    let(:mp) { MobilePronto::SMS.new('AWESOMEAPICREDENTIALS', nil) }
    
     before do
-      VCR.insert_cassette 'sms', :record => :send
+      VCR.insert_cassette 'sms', :record => :new_episodes
     end
    
     after do
@@ -51,16 +52,16 @@ describe MobilePronto::SMS do
     end
    
     it "must perform the request and get the data" do
-      mp.send.must_equal '000'
+      mp.send('558199999999', 'aux user', 'message').must_equal '000'
     end
   end
 
   describe "GET follow" do
  
-    let(:mp) { MobilePronto::SMS.new('YOURAPICREDENTIALHERE') }
+    let(:mp) { MobilePronto::SMS.new('AWESOMEAPICREDENTIALS', nil) }
    
     before do
-      VCR.insert_cassette 'sms', :record => :follow
+      VCR.insert_cassette 'sms', :record => :new_episodes
     end
    
     after do
@@ -72,16 +73,16 @@ describe MobilePronto::SMS do
     end
    
     it "must perform the request and get the data" do
-      mp.follow.must_equal '000'
+      mp.follow('558199999999', 'aux_user', 'nice message').must_equal '000:MPG000027109145-21611143'
     end
   end
 
   describe "GET status" do
  
-    let(:mp) { MobilePronto::SMS.new('YOURAPICREDENTIALHERE') }
+    let(:mp) { MobilePronto::SMS.new('AWESOMEAPICREDENTIALS', nil) }
    
     before do
-      VCR.insert_cassette 'sms', :record => :status
+      VCR.insert_cassette 'sms', :record => :new_episodes
     end
    
     after do
@@ -93,16 +94,16 @@ describe MobilePronto::SMS do
     end
    
     it "must perform the request and get the data" do
-      mp.status.must_equal '200'
+      mp.status('000:MPG000027109145-21611143').must_equal '200'
     end
   end
 
   describe "GET query01" do
  
-    let(:mp) { MobilePronto::SMS.new('YOURAPICREDENTIALHERE') }
+    let(:mp) { MobilePronto::SMS.new('AWESOMEAPICREDENTIALS', nil) }
    
     before do
-      VCR.insert_cassette 'sms', :record => :query01
+      VCR.insert_cassette 'sms', :record => :new_episodes
     end
    
     after do
@@ -114,8 +115,7 @@ describe MobilePronto::SMS do
     end
    
     it "must perform the request and get the data" do
-      mp.query01.must_equal '200'
+      mp.query01(Date.today, Date.today, 'aux user', '558199999999', '200').must_equal '200'
     end
   end
- 
 end

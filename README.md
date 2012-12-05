@@ -23,3 +23,9 @@ response = mp.send(558186053963, 'brunnogomes', 'This is SPARTA!')
 puts response # '000'
 
 ```
+
+## How to test
+
+```ruby
+rake test
+```

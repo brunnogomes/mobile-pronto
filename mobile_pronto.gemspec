@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.name          = "mobile_pronto"
   s.version       = MobilePronto::VERSION
   s.platform      = Gem::Platform::RUBY
-  s.author        = "Brunno Gomes"
-  s.email         = "brunnogomes@gmail.com"
+  s.authors       = ["Brunno Gomes", "Guilherme Carvalho"]
+  s.email         = ["brunnolgp@gmail.com", "guilherme@guava.com.br"]
   s.homepage      = "http://github.com/brunnogomes/mobile-pronto"
   s.summary       = "MobilePronto API Wrapper"
   s.require_paths = ['lib']

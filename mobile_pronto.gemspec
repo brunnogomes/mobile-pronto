@@ -14,8 +14,9 @@ Gem::Specification.new do |s|
   s.email         = ["brunnolgp@gmail.com", "guilherme@guava.com.br"]
   s.homepage      = "http://github.com/brunnogomes/mobile-pronto"
   s.summary       = "MobilePronto API Wrapper"
-  s.require_paths = ['lib']
-
+  s.require_path  = 'lib'
+  s.files        = Dir.glob("{lib}/**/*")
+  
   s.add_development_dependency "webmock"
   s.add_development_dependency "vcr"
   s.add_development_dependency "turn"
